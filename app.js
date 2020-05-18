@@ -1,6 +1,5 @@
 const express = require('express');
 const mysql = require('mysql');
-app.use(express.static("public"));
 const app = express();
 
 const connection = mysql.createConnection({
@@ -17,6 +16,7 @@ connection.connect((err) => {
   }
   console.log('success');
 });
+app.use(express.static("public"));
 
 app.get('/', (req, res) => {
   res.render('top.ejs');
